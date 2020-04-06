@@ -1,36 +1,45 @@
 import React from 'react';
 import './App.css';
-import SignUpForm from './components/SignUpForm'
+import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom';
+import SignUpForm from './components/SignUpForm';
+
 
 function App() {
   return (
-    <div className="App">
-      <div className="App__Aside">
-        <div className="Text__Set">
-          <h1>EKYC DEMO</h1>
-          <h2>Electronic Know Your Customer</h2>
-          <h2>"We promise to protect your digital financial processes"</h2>
+    <Router>
+      <div className="App">
+        <div className="App__Aside">
+          <div className="Text__Set">
+            <h1>EKYC DEMO</h1>
+            <h2>Electronic Know Your Customer</h2>
+            <h2>"We promise to protect your digital financial processes"</h2>
+          </div>
         </div>
+        <div className="App__Form">
+          <div className="PageSwitcher">
+            <NavLink to="/sign-in" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">Sign In</NavLink>
+            <NavLink exact to="/" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">Sign Up</NavLink>
+          </div>
+
+          <div className="FormTitle">
+            <NavLink to="/sign-in" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Sign In</NavLink>
+            <NavLink exact to="/" activeClassName="FormTitle__Link--Active"  className="FormTitle__Link">Sign Up</NavLink>
+          </div>
+          <Route exact path="/">
+          <div className="FormCenter">
+            <SignUpForm />
+          </div>
+          </Route>
+          <Route exact path="/sign-in">
+            <div className="FormCenter">
+              <h1>Under Construction</h1>
+            </div>
+          </Route>
+
+        </div>
+
       </div>
-      <div className="App__Form">
-        <div className="PageSwitcher">
-          <a href="#" className="PageSwitcher__Item">Sign In</a>
-          <a href="#" className="PageSwitcher__Item PageSwitcher__Item--Active">Sign Up</a>
-        </div>
-
-        <div className="FormTitle">
-          <a href="#" className="FormTitle__Link">Sign In</a>
-          <a href="#" className="FormTitle__Link FormTitle__Link--Active">Sign Up</a>
-        </div>
-
-        <div className="FormCenter">
-          <SignUpForm/>
-        </div>
-       
-
-      </div>
-
-    </div>
+    </Router>
   );
 }
 
