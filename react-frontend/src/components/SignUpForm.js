@@ -1,6 +1,6 @@
 import React from 'react';
 
-function SignInForm() {
+function SignUpForm() {
     return (
         <form className="FormField">
             <div className="FormField">
@@ -26,4 +26,4 @@ function SignInForm() {
         </form>
     );
 }
-export default SignInForm;
+export default SignUpForm;

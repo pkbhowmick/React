@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import SignInForm from './components/SignInForm'
+import SignUpForm from './components/SignUpForm'
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
         </div>
 
         <div className="FormCenter">
-          <SignInForm/>
+          <SignUpForm/>
         </div>
        
 
