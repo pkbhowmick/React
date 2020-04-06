@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom';
 import SignUpForm from './components/SignUpForm';
-
+import SignInForm from './components/SignInForm';
 
 function App() {
   return (
@@ -32,7 +32,7 @@ function App() {
           </Route>
           <Route exact path="/sign-in">
             <div className="FormCenter">
-              <h1>Under Construction</h1>
+            <SignInForm />
             </div>
           </Route>
 

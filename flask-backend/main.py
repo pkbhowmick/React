@@ -11,7 +11,12 @@ def register():
     email = request.get_json()['email']
     return jsonify({"email" : email})
 
-
+@app.route('/sign-in',methods=['POST'])
+def signin():
+    email = request.get_json()['email']
+    password = request.get_json()['password']
+    return jsonify({"email" : email,
+                    "password": password})
 
 if __name__=='__main__':
     app.run(debug=True)
