@@ -46,7 +46,7 @@ class SignInForm extends Component {
                 </div>
                 <div className="FormField">
                     <button className="FormField__Button mr-20" type="submit" >Sign In</button>
-                    <Link to="/register" className="FormField__Link">Create new account?</Link>
+                    <Link exact to="/" className="FormField__Link">Create new account?</Link>
                 </div>
             </form>
         );
