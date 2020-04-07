@@ -27,10 +27,15 @@ class SignUpForm extends Component {
     }
     handleSubmit(e) {
         e.preventDefault();
-        console.log("The form was submitted with the following data: ");
-        console.log(this.state);
-        signup(this.state)
-        .catch(err => alert(err));
+        const { password, confirm } = this.state;
+        if (password !== confirm) {
+            alert("Passwords don't match");
+        } else {
+            console.log("The form was submitted with the following data: ");
+            console.log(this.state);
+            signup(this.state)
+            .catch(err => alert(err));
+        }
     }
 
     render() {
