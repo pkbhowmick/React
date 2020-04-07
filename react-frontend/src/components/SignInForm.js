@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom'
+import { login } from './Repository'
 
 class SignInForm extends Component {
     constructor() {
@@ -28,16 +29,8 @@ class SignInForm extends Component {
         e.preventDefault();
         console.log("The form was submitted with the following data: ");
         console.log(this.state);
-        axios.post("/sign-in",{
-            email : this.state.email,
-            password : this.state.password
-        })
-        .then(response => {
-            console.log(response);
-        })
-        .then(error => {
-            console.log(error);
-        })
+        login(this.state)
+        .catch(err => alert(err));
     }
 
     render() {

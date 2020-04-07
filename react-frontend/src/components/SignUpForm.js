@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { signup } from './Repository'
 
 class SignUpForm extends Component {
     constructor() {
@@ -14,34 +15,22 @@ class SignUpForm extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-    handleChange(e)
-    {
+    handleChange(e) {
         let target = e.target;
         let value = target.value;
         let name = target.name;
 
         this.setState({
-            [name] : value
+            [name]: value
         })
 
     }
-    handleSubmit(e)
-    {
+    handleSubmit(e) {
         e.preventDefault();
         console.log("The form was submitted with the following data: ");
         console.log(this.state);
-        axios.post("/register",{
-            name : this.state.name,
-            email : this.state.email,
-            password : this.state.password,
-            confirm : this.state.confirm
-        })
-        .then(response => {
-            console.log(response);
-        })
-        .then(error => {
-            console.log(error);
-        })
+        signup(this.state)
+        .catch(err => alert(err));
     }
 
     render() {
