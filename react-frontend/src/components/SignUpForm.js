@@ -58,8 +58,11 @@ class SignUpForm extends Component {
                     <input className="FormField__Input" type="password" id="confirm" placeholder="Confirm your password" name="confirm" value={this.state.confirm} onChange={this.handleChange} />
                 </div>
                 <div className="FormField">
-                    <button className="FormField__Button mr-20" type="submit" >Sign Up</button>
+                    <button to="/upload-info" className="FormField__Button mr-20" type="submit" >Sign Up</button>
                     <Link to="/sign-in" className="FormField__Link">Already have an account?</Link>
+                </div>
+                <div className="FormField">
+                    <Link to="/upload-info" className="FormField__Button mr-20" type="submit" >Continue to next page</Link>
                 </div>
             </form>
         );

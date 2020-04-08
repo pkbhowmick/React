@@ -22,9 +22,9 @@ def index():
 def register():
     users = mongo.db.users
 
-    name = request.json['name']
-    email = request.json['email']
-    password = generate_password_hash(request.json['password'])
+    name = request.get_json()['name']
+    email = request.get_json()['email']
+    password = generate_password_hash(request.get_json()['password'])
     
     response = users.find_one({'email': email})
 
@@ -47,8 +47,8 @@ def register():
 def signin():
     users = mongo.db.users
 
-    email = request.json['email']
-    password = request.json['password']
+    email = request.get_json()['email']
+    password = request.get_json()['password']
 
     response = users.find_one({'email': email})
     if response:
