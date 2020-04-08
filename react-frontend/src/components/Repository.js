@@ -30,6 +30,7 @@ export function login(data) {
         })
 }
 
+<<<<<<< HEAD
 export function verify(data){
     console.log("here we go");
     if((data.pin.length)<6){
@@ -49,3 +50,18 @@ export function verify(data){
         console.log("Error! again!");
     })
 }
+=======
+export function faceVerification(image) {
+    return axios.post("http://35.240.221.96:6000/facce_verification", {
+        face : image
+    })
+        .then(response => {
+            return response
+        })
+        .then(error => {
+            console.log(error);
+        })
+}
+
+
+>>>>>>> da4ece5f3717568f8e1dcc892923dfa4968df4ad
