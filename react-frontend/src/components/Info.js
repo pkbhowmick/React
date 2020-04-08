@@ -18,6 +18,9 @@ class Info extends Component {
                     <label className="FormField__Info" htmlFor="facePic">Upload your picture</label>
                     <button className="FormField__Button mr-20" type="submit" >Open camera</button>
                 </div>
+                <div className="FormField">
+                <Link to="/verify-pin" className="FormField__Button mr-20" type="submit" >Continue to next page</Link>
+                </div>
             </form>
         );
     }
