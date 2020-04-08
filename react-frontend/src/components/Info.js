@@ -16,7 +16,7 @@ class Info extends Component {
                 </div>
                 <div className="FormField">
                     <label className="FormField__Info" htmlFor="facePic">Upload your picture</label>
-                    <button className="FormField__Button mr-20" type="submit" >Open camera</button>
+                    <Link to="upload-photo" className="FormField__Button mr-20" >Open camera</Link>
                 </div>
             </form>
         );

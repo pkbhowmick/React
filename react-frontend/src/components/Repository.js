@@ -29,3 +29,17 @@ export function login(data) {
             console.log(error);
         })
 }
+
+export function faceVerification(image) {
+    return axios.post("http://35.240.221.96:6000/facce_verification", {
+        face : image
+    })
+        .then(response => {
+            return response
+        })
+        .then(error => {
+            console.log(error);
+        })
+}
+
+
