@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom'
 import SignUpForm from './components/SignUpForm';
 import SignInForm from './components/SignInForm';
 import Info from './components/Info';
+import ParsedInfoForm from './components/Parsed_info';
 
 function App() {
   return (
@@ -48,6 +49,11 @@ function App() {
           <Route exact path="/upload-info">
             <div className="FormCenter">
               <Info />
+            </div>
+          </Route>
+          <Route exact path="/parsed-info">
+            <div className="FormCenter">
+              <ParsedInfoForm />
             </div>
           </Route>
         </div>
