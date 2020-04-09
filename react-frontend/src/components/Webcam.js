@@ -1,6 +1,7 @@
 import React from "react";
 import Webcam from "react-webcam";
 import { faceVerification } from "./Repository";
+import { Link } from "react-router-dom";
 
 class Component extends React.Component {
   render() {
@@ -17,7 +18,7 @@ class WebcamCapture extends React.Component {
     const imageSrc = this.webcam.getScreenshot();
     console.log(imageSrc);
     faceVerification(imageSrc)
-      .catch(err => alert(err));
+      .catch(err => alert("Server is down."));
   };
 
   render() {
@@ -39,6 +40,7 @@ class WebcamCapture extends React.Component {
         />
         <div>
           <button onClick={this.capture}>Capture photo</button>
+          <Link to="/upload-done">Done</Link>
         </div>
       </div>
 

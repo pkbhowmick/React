@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom';
 class Info extends Component {
 
     constructor() {
@@ -48,14 +48,17 @@ class Info extends Component {
                 </div>
 
                 <div className="FormField">
-                    <Link to="/parsed-info" className="FormField__Button mr-20" type="submit" >Show parsed data</Link>
-                </div>
-                <div className="FormField">
                     <label className="FormField__Info" htmlFor="facePic">Upload your picture</label>
-                    <Link to="upload-photo" className="FormField__Button mr-20" >Open camera</Link>
+                    <br/>
+                    <Link exact to="/upload-photo" className="FormField__Button mr-20" >Open camera</Link>
                 </div>
+                <Route exact path="/upload-done">
+                    <div className="FormField">
+                        <label className="FormField__Info" htmlFor="facePicDone">Picture Upload Done</label>
+                    </div>
+                </Route>
                 <div className="FormField">
-                    <Link to="/verify-pin" className="FormField__Button mr-20" type="submit" >Continue to next page</Link>
+                    <Link to="/parsed-info" className="FormField__Button mr-20" type="submit" >Show parsed data</Link>
                 </div>
             </form>
         );

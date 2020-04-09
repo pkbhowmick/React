@@ -46,11 +46,15 @@ export default class Pindata extends Component{
                     <input className="FormField__Input" type="password" id="pin" placeholder="PIN: " name="pin" value={this.state.pin} onChange={this.handleChange} />
                 </div>
                 <div className="FormField">
-                    <label className="FormField__Label" htmlFor="verify_pin">PIN</label>
+                    <label className="FormField__Label" htmlFor="verify_pin">RE-ENTER PIN</label>
                     <input className="FormField__Input" type="password" id="verify_pin" placeholder="Re-enter PIN: " name="verify_pin" value={this.state.verify_pin} onChange={this.handleChange} />
                 </div>
                 <div className="FormField">
                     <Link exact to="/verified" className="FormField__Button mr-20" type="submit" onClick={this.handleSubmit}>Verify PIN</Link>
+                </div>
+                <div className="FormField">
+                    <br/><br/><br/><br/> <br/><br/><br/><br/>
+                    <Link exact to="/save-info" className="FormField__Label" >Continue to next page...</Link>
                 </div>
             </form>
           </div>

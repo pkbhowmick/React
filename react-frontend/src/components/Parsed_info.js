@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
+import { verifyData } from './Repository';
 
 class ParsedInfoForm extends Component {
     constructor(props) {
@@ -9,14 +10,14 @@ class ParsedInfoForm extends Component {
             name: "",
             fName: "",
             mName: "",
-            sName:"",
-            gender:"",
+            sName: "",
+            gender: "",
             relation: "",
-            nominee:"",
-            pNo:"",
-            prof:"",
-            presentAddr:"",
-            permAddr:""
+            nominee: "",
+            pNo: "",
+            prof: "",
+            presentAddr: "",
+            permAddr: ""
 
         };
         this.handleChange = this.handleChange.bind(this);
@@ -36,6 +37,8 @@ class ParsedInfoForm extends Component {
         e.preventDefault();
         console.log("The form was submitted with the following data: ");
         console.log(this.state);
+        verifyData(this.state)
+            .catch(err => alert("Sorry!!! Your given data is not correct."));
     }
 
     // React Life Cycle
@@ -61,7 +64,7 @@ class ParsedInfoForm extends Component {
     }
     render() {
         return (
-            <form className="FormField" onSubmit={this.handleSubmit}>
+            <form className="FormField" >
                 <div className="FormField">
                     <label className="FormField__Label" htmlFor="name">Applicant's Name</label>
                     <input className="FormField__Input" type="text" id="name" placeholder="" name="name" value={this.state.name} onChange={this.handleChange} />
@@ -108,13 +111,21 @@ class ParsedInfoForm extends Component {
                 </div>
                 <div className="FormField">
                     <label className="FormField__Label" htmlFor="picture">Picture</label>
-                    
+
                 </div>
                 <div className="FormField">
-                    {/* <button to="/further-info" className="FormField__Button mr-20" type="submit" >Next page</button> */}
-                  
+                    <label className="FormField__CheckboxLabel">
+                        <input className="FormField__Checkbox" type="checkbox" name="hasAgreed" value={this.state.hasAgreed} onChange={this.handleChange} /> Make sure your given data is correct.
+                </label>
+
                 </div>
-                
+                <div className="FormField">
+                    <Link onClick={this.handleSubmit} exact to="/verify-pin" className="FormField__Button mr-20" type="submit" >Verify Data</Link>
+                </div>
+                <div className="FormField">
+                    <Link exact to="/verify-pin" className="FormField__Label" >Continue to next page...</Link>
+                </div>
+
             </form>
         );
     }

@@ -6,15 +6,17 @@ import SignInForm from './components/SignInForm';
 import Info from './components/Info';
 import Pindata from './components/pin';
 import Verified from './components/verified';
-import WebcamCapture from './components/Webcam'
+import WebcamCapture from './components/Webcam';
 import ParsedInfoForm from './components/Parsed_info';
+import SaveData from './components/SaveData';
+import EndPage from './components/EndPage';
 
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Route exact path="/(|upload-info|sign-in|verify-pin|verified|parsed-info)">
+        <Route exact path="/(|upload-info|verify-pin|verified|parsed-info|upload-done|save-info|end)">
           <div className="App__Aside">
             <div className="Text__Set">
               <h1>EKYC DEMO</h1>
@@ -23,63 +25,50 @@ function App() {
             </div>
           </div>
           <div className="App__Form">
-            <Route exact path="/">
-              <div className="PageSwitcher">
-                <NavLink to="/sign-in" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">Sign In</NavLink>
-                <NavLink exact to="/" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">Sign Up</NavLink>
+            <Route exact path="/(|upload-info|verify-pin|verified|parsed-info|upload-done|save-info|end)">
+              <Route exact path="/(|upload-info|verify-pin|verified|parsed-info|upload-done|save-info)">
+              <div className="Title">
+                <h1><ul>Registration Process</ul></h1>
               </div>
+              </Route>
+              <Route exact path="/(|upload-info|upload-done)">
+                <div className="FormCenter">
+                  <Info />
+                </div>
+              </Route>
+              <Route exact path="/verify-pin">
+                <div className="FormCenter">
+                  <Pindata />
+                </div>
+              </Route>
+              <Route exact path="/verified">
+                <div className="FormCenter">
+                  <Verified />
+                </div>
+              </Route>
+              <Route exact path="/parsed-info">
+                <div className="FormCenter">
+                  <ParsedInfoForm />
+                </div>
+              </Route>
+              <Route exact path="/(save-info)">
+                <div className="FormCenter">
+                  <SaveData />
+                </div>
+              </Route>
+              <Route exact path="/end">
+                <EndPage/>
+              </Route>
 
-              <div className="FormTitle">
-                <NavLink to="/sign-in" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Sign In</NavLink>
-                <NavLink exact to="/" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Sign Up</NavLink>
-              </div>
-              <div className="FormCenter">
-                <SignUpForm />
-              </div>
-            </Route>
-            <Route exact path="/sign-in">
-              <div className="PageSwitcher">
-                <NavLink to="/sign-in" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">Sign In</NavLink>
-                <NavLink exact to="/" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">Sign Up</NavLink>
-              </div>
-
-              <div className="FormTitle">
-                <NavLink to="/sign-in" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Sign In</NavLink>
-                <NavLink exact to="/" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Sign Up</NavLink>
-              </div>
-              <div className="FormCenter">
-                <SignInForm />
-              </div>
-            </Route>
-            <Route exact path="/upload-info">
-              <div className="FormCenter">
-                <Info />
-              </div>
-            </Route>
-            <Route exact path="/verify-pin">
-              <div className="FormCenter">
-                <Pindata />
-              </div>
-            </Route>
-            <Route exact path="/verified">
-              <div className="FormCenter">
-                <Verified />
-              </div>
-            </Route>
-            <Route exact path="/parsed-info">
-              <div className="FormCenter">
-                <ParsedInfoForm />
-              </div>
-            </Route>
-          </div>
-        </Route >
+            </Route >
+          </div >
+        </Route>
         <Route exact path="/upload-photo">
           <div>
             <WebcamCapture />
           </div>
         </Route>
-
-      </div >
+      </div>
     </Router >
   );
 }
