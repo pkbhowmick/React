@@ -5,6 +5,7 @@ import SignUpForm from './components/SignUpForm';
 import SignInForm from './components/SignInForm';
 import Info from './components/Info';
 import WebcamCapture from './components/Webcam'
+import ParsedInfoForm from './components/Parsed_info';
 
 function App() {
   return (
@@ -59,7 +60,22 @@ function App() {
             <WebcamCapture />
           </div>
         </Route>
-      </div>
+            </div>
+          <Route>
+            <div className="FormCenter">
+              <SignInForm />
+            </div>
+          </Route>
+          <Route exact path="/upload-info">
+            <div className="FormCenter">
+              <Info />
+            </div>
+          </Route>
+          <Route exact path="/parsed-info">
+            <div className="FormCenter">
+              <ParsedInfoForm />
+            </div>
+          </Route>
     </Router>
   );
 }
