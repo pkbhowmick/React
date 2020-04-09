@@ -8,7 +8,7 @@ export function signup(data) {
         confirm: data.confirm
     })
         .then(response => {
-            localStorage.setItem('signup-token',JSON.stringify(response.data.token));
+            localStorage.setItem('signup-token', JSON.stringify(response.data.token));
             return response.data
         })
         .then(error => {
@@ -22,7 +22,7 @@ export function login(data) {
         password: data.password
     })
         .then(response => {
-            localStorage.setItem('signin-token',JSON.stringify(response.data.token));
+            localStorage.setItem('signin-token', JSON.stringify(response.data.token));
             return response.data
         })
         .then(error => {
@@ -30,30 +30,30 @@ export function login(data) {
         })
 }
 
-<<<<<<< HEAD
-export function verify(data){
+export function verify(data) {
     console.log("here we go");
-    if((data.pin.length)<6){
+    if ((data.pin.length) < 6) {
         console.log("oops!");
         alert("Pin must contain 6 digits");
     }
-    if(data.pin != data.verify_pin)alert("Verification Pin must be the same as the Pin");
-    return axios.post(" http://35.240.221.96:6000/save_pin/",{
-        nid: "09911236445",
-        pin: data.pin
-    })
-    .then(response=>{
-        alert("Verified!");
-        return response.data;
-    })
-    .then(error=>{
-        console.log("Error! again!");
-    })
+    else if (data.pin != data.verify_pin) alert("Verification Pin must be the same as the Pin");
+    else {
+        return axios.post(" http://35.240.221.96:6000/save_pin/", {
+            nid: "09911236445",
+            pin: data.pin
+        })
+            .then(response => {
+                alert("Verified!");
+                return response.data;
+            })
+            .then(error => {
+                console.log("Error! again!");
+            })
+    }
 }
-=======
 export function faceVerification(image) {
     return axios.post("http://35.240.221.96:6000/facce_verification", {
-        face : image
+        face: image
     })
         .then(response => {
             return response
@@ -64,4 +64,3 @@ export function faceVerification(image) {
 }
 
 
->>>>>>> da4ece5f3717568f8e1dcc892923dfa4968df4ad
