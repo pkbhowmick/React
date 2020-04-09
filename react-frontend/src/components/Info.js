@@ -50,7 +50,11 @@ class Info extends Component {
                     <Link to="upload-photo" className="FormField__Button mr-20" >Open camera</Link>
                 </div>
                 <div className="FormField">
+<<<<<<< HEAD
                 <Link to="/parsed-info" className="FormField__Button mr-20" type="submit" >Show parsed data</Link>
+=======
+                <Link to="/verify-pin" className="FormField__Button mr-20" type="submit" >Continue to next page</Link>
+>>>>>>> 344447faa3595181177b2e4d286f2857fd30a66a
                 </div>
             </form>
         );

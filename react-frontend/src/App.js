@@ -4,8 +4,16 @@ import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom'
 import SignUpForm from './components/SignUpForm';
 import SignInForm from './components/SignInForm';
 import Info from './components/Info';
+<<<<<<< HEAD
+import Pindata from './components/pin';
+import Verified from './components/verified';
+=======
 import WebcamCapture from './components/Webcam'
+<<<<<<< HEAD
 import ParsedInfoForm from './components/Parsed_info';
+=======
+>>>>>>> da4ece5f3717568f8e1dcc892923dfa4968df4ad
+>>>>>>> 344447faa3595181177b2e4d286f2857fd30a66a
 
 function App() {
   return (
@@ -43,6 +51,29 @@ function App() {
               <div className="FormTitle">
                 <NavLink to="/sign-in" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Sign In</NavLink>
                 <NavLink exact to="/" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Sign Up</NavLink>
+<<<<<<< HEAD
+            </div>
+            <div className="FormCenter">
+              <SignInForm />
+            </div>
+          </Route>
+          <Route exact path="/upload-info">
+            <div className="FormCenter">
+              <Info />
+            </div>
+          </Route>
+          <Route exact path = "/verify-pin">
+            <div className = "FormCenter">
+              <Pindata/>
+            </div>
+          </Route>
+          <Route exact path = "/verified">
+            <div className = "FormCenter">
+               <Verified />
+            </div>
+          </Route>
+        </div>
+=======
               </div>
               <div className="FormCenter">
                 <SignInForm />
@@ -60,6 +91,7 @@ function App() {
             <WebcamCapture />
           </div>
         </Route>
+<<<<<<< HEAD
             </div>
           <Route>
             <div className="FormCenter">
@@ -76,6 +108,10 @@ function App() {
               <ParsedInfoForm />
             </div>
           </Route>
+=======
+>>>>>>> da4ece5f3717568f8e1dcc892923dfa4968df4ad
+      </div>
+>>>>>>> 344447faa3595181177b2e4d286f2857fd30a66a
     </Router>
   );
 }
