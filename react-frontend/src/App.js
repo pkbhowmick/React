@@ -7,12 +7,14 @@ import Info from './components/Info';
 import Pindata from './components/pin';
 import Verified from './components/verified';
 import WebcamCapture from './components/Webcam'
+import ParsedInfoForm from './components/Parsed_info';
+
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Route exact path="/(|upload-info|sign-in|verify-pin|verified)">
+        <Route exact path="/(|upload-info|sign-in|verify-pin|verified|parsed-info)">
           <div className="App__Aside">
             <div className="Text__Set">
               <h1>EKYC DEMO</h1>
@@ -64,6 +66,11 @@ function App() {
                 <Verified />
               </div>
             </Route>
+            <Route exact path="/parsed-info">
+              <div className="FormCenter">
+                <ParsedInfoForm />
+              </div>
+            </Route>
           </div>
         </Route >
         <Route exact path="/upload-photo">
@@ -71,6 +78,7 @@ function App() {
             <WebcamCapture />
           </div>
         </Route>
+
       </div >
     </Router >
   );
