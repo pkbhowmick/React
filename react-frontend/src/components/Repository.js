@@ -51,12 +51,12 @@ export function verify(data) {
             })
     }
 }
-export function faceVerification(image) {
+export function faceVerification() {
     return axios.post("http://35.240.221.96:6000/facce_verification", {
-        face: image
     })
         .then(response => {
-            return response
+            alert("Photo is captured.Press capture photo to capture again otherwise press Done.");
+            console.log(response)
         })
         .then(error => {
             console.log(error);
@@ -65,7 +65,6 @@ export function faceVerification(image) {
 
 export function verifyData(data) {
     return axios.post("http://35.240.221.96:6000/verify_nid_data", {
-
         name: data.name,
         fathers_name: data.fName,
         mothers_name: data.mName,

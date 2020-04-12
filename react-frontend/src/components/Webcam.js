@@ -17,7 +17,7 @@ class WebcamCapture extends React.Component {
   capture = () => {
     const imageSrc = this.webcam.getScreenshot();
     console.log(imageSrc);
-    faceVerification(imageSrc)
+    faceVerification()
       .catch(err => alert("Server is down."));
   };
 
